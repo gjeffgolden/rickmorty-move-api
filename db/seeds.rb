@@ -8,6 +8,7 @@ require 'rest-client'
 
 Character.destroy_all
 Location.destroy_all 
+Adventure.destroy_all
 
 
 @char_response["results"].each do |character|
@@ -17,3 +18,8 @@ end
 @loc_response["results"].each do |location|
     Location.create(name: location["name"], dimension: location["dimension"])
 end
+
+Adventure.create(
+    character_id: 1,
+    location_id: 1
+)
